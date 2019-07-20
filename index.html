@@ -3,13 +3,13 @@
 <head>
 	<meta charset="utf-8">
 	<title>Insurance CF</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
 	<header>
 		<div class="top">
-			<img class="logo1" src="logo.png" alt="Logo">
-			<img class="banner" src="banner.png" alt="Banner">		
+			<img class="logo1" src="img/logo.png" alt="Logo">
+			<img class="banner" src="img/banner.png" alt="Banner">		
 		</div>
 		<nav class="navHeader">
 			<ul class="ul1">
@@ -99,37 +99,10 @@
 			</ul>
 		</nav>
 		<div class="footerImageWrapper">
-			<img src="logo-inv.png" width="200">
+			<img src="img/logo-inv.png" width="200">
 		</div>
 		<p class="footerText">Vildan Günay - CodeFactory 2019</p>
 	</footer>
-	<script>
-		function calculation() {
-			var hp = Number(document.getElementById("horsepower").value);
-			var age = Number(document.getElementById("age").value);
-			var country = document.getElementById("country").value;
-			var name = document.getElementById("name").value;
-			var result = null;
-			console.log(hp);
-			console.log(age);
-			console.log(country);
-
-			if (country === 'Austria') {
-				result = hp * 100 / age  + 50;
-			}
-			else if (country === 'Hungary') {
-				result = hp * 120 / age + 100;
-			}
-			else {
-				console.log('im here');
-				result = (hp * 150 / ( age + 3)) + 50;
-			}
-			console.log(result);
-			document.getElementById("printedCal").innerHTML = name + ", your insurance costs " + Math.ceil(result) + "€";
-			
-		}
-		document.getElementById("calculateButton").addEventListener("click", calculation);
-		
-	</script>
+	<script src="js/insurance.js"></script>
 </body>
 </html>
