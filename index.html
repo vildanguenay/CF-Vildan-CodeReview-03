@@ -24,11 +24,11 @@
 				<h1 class="carInsur">Car insurance</h1>
 				<div class="calculation">
 					<h1 class="greatCov">Great coverage begins<br>with a custom quote</h1>
-					<form>
+					<div id="result">
 						<div class="row">
 							<div>
 								<label for="name">Your name:</label><br>
-								<input type="number" id="name" value="">
+								<input type="text" id="name" value="">
 							</div>
 							<div>
 								<label for="age">Age:</label><br>
@@ -38,10 +38,10 @@
 						<div class="row">
 							<div>
 								<label for="country">Country:</label><br>
-								<select class="dropdown">
+								<select id="country" class="dropdown">
                                     <option value="Austria">Austria</option>
-                                    <option value="Germany">Germany</option>
-                                    <option value="Switzerland">Switzerland</option>
+                                    <option value="Hungary">Hungary</option>
+                                    <option value="Greece">Greece</option>
                                 </select>
 							</div>
 							<div>
@@ -50,16 +50,16 @@
 							</div>			
 						</div>
 						<div class="buttonWrapper">
-							<button class="calculateButton" type="submit">Calculate</button>					
+							<button id="calculateButton" type="submit">Calculate</button>		
 						</div>
-					</form>
-					<p class="printedCal">Printed calculation goes here</p>
+					</div>
+					<p id="printedCal"></p>
 					<div class="borderCal"></div>
 				</div>
 			</div>
 			<div class="calculationFooter">
-				<h2>Un-complicating car coverage</h2>
-				<p>Understandingyour coverage options shouldn't be so hard.<br>
+				<h2 class="headerFooter">Un-complicating car coverage</h2>
+				<p class="calcFooterparagraph">Understandingyour coverage options shouldn't be so hard.<br>
 				We'll guide you through available coverage types,<br>
 				starting with who and what is covered.</p>
 			</div>
@@ -103,5 +103,33 @@
 		</div>
 		<p class="footerText">Vildan Günay - CodeFactory 2019</p>
 	</footer>
+	<script>
+		function calculation() {
+			var hp = Number(document.getElementById("horsepower").value);
+			var age = Number(document.getElementById("age").value);
+			var country = document.getElementById("country").value;
+			var name = document.getElementById("name").value;
+			var result = null;
+			console.log(hp);
+			console.log(age);
+			console.log(country);
+
+			if (country === 'Austria') {
+				result = hp * 100 / age  + 50;
+			}
+			else if (country === 'Hungary') {
+				result = hp * 120 / age + 100;
+			}
+			else {
+				console.log('im here');
+				result = (hp * 150 / ( age + 3)) + 50;
+			}
+			console.log(result);
+			document.getElementById("printedCal").innerHTML = name + ", your insurance costs " + Math.ceil(result) + "€";
+			
+		}
+		document.getElementById("calculateButton").addEventListener("click", calculation);
+		
+	</script>
 </body>
 </html>
